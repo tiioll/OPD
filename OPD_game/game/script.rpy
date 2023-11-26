@@ -8,29 +8,29 @@ label start:
 
     scene office
 
-    show alex
+    show alex happy
 
     a "Вот черт, опять программа зависла, 3 раз подряд, еще и кнопку отправки невозможно найти! Так работать невозможно."
     a "Я ввел всего лишь террабайт информации, а ты, старая железка, не можешь ее обработать хотя бы в течение моей оставшейся жизни!!!"
 
-    hide alex
-    show alex reverse:
+    hide alex happy
+    show alex happy reverse:
         xalign -0.1 yalign 1.3
 
     a "Будь проклят тот день, когда я согласился работать в говнопрограмме с говнокодом."  
     a "Если бы где-нибудь раздавали суперспособности, я бы выбрал способность понимать мышление компа, умение программировать и вообще бы стал крутым прогером!"
 
-    hide alex reverse
-    show alex:
+    hide alex happy reverse
+    show alex happy:
         xalign -0.1 yalign 1.3
-    show ulearnich:
-        xalign 1.1
+    show ulearnich happy:
+        xalign 1.1 yalign 1.3
 
     n "Хмм, могу устроить"
 
-    hide ulearnich
-    hide alex reverse
-    show alex
+    hide ulearnich happy
+    hide alex happy reverse
+    show alex happy
 
     menu:
         "Так, все, пора завязывать с энергетиками, уже и голоса мерещатся":
@@ -38,18 +38,19 @@ label start:
         "Похоже из-за того, что я не спал последние две ночи, пока бился над практическим заданием, у меня появились галлюцинации":
             call NeSpal from _call_NeSpal
 
-    hide alex
-    hide ulearnich
-    show ulearnich
+    hide alex happy
+    hide ulearnich happy
+    show ulearnich happy:
+        xalign 0.45 yalign 1.3
 
     u "Я ТВОЙ ПОВЕЛИТЕЛЬ!!!"
 
-    hide ulearnich
-    hide alex
+    hide ulearnich happy
+    hide alex happy
 
-    show ulearnich:
-        xalign 1.1
-    show alex:
+    show ulearnich happy:
+        xalign 1.1 yalign 1.3
+    show alex happy:
         xalign -0.1 yalign 1.3
 
     u "Ладно, шутка! Не парься так, я на самом деле добрый бог программирования."
@@ -69,9 +70,10 @@ label start:
     u "Выберешь красную - так и останешься постепенно лысеющим сисадмином на скучной работе"
     u "Выберешь синюю - узнаешь, насколько глубоки строение и архитектура программ"
 
-    hide ulearnich
-    hide alex
-    show ulearnich
+    hide ulearnich happy
+    hide alex happy
+    show ulearnich happy:
+        xalign 0.45 yalign 1.3
 
     u "Выбор за тобой!"
 
@@ -81,15 +83,15 @@ label start:
         "Ну и ладно, терять мне уже нечего, выберу синюю":
             call NeZassal from _call_NeZassal
 
-    hide alex
-    show alex:
+    hide alex happy
+    show alex happy:
         xalign 1.3 yalign 1.3
-    show ulearnich reverse:
-        xalign -0.1
+    show ulearnich happy reverse:
+        xalign -0.1 yalign 1.3
 
     u "ХАХАХА! Еще ни один не спросил, как вернуться обратно! Ну что ж, пока не поймет и не научится всему, так и будет скитаться по оптоволокну!"
 
-    hide alex
+    hide alex happy
 
     "Алекс дефрагментируется и залетает в монитор. Туда, откуда прибыл Юрий Юлёрнович"
 
@@ -98,10 +100,10 @@ label start:
 
 label Energos:
 
-    show alex:
+    show alex happy:
         xalign -0.1 yalign 1.3
-    show ulearnich:
-        xalign 1.1
+    show ulearnich happy:
+        xalign 1.1 yalign 1.3
 
     n "Ну допустим, не мерещится, а вот с энергетиками действительно заканчивай, вон глаза какие красные"
     menu:
@@ -114,10 +116,10 @@ label Energos:
 
 label NeSpal:
 
-    show alex:
+    show alex happy:
         xalign -0.1 yalign 1.3
-    show ulearnich:
-        xalign 1.1
+    show ulearnich happy:
+        xalign 1.1 yalign 1.3
 
     n "Эй, Алекс, Я вообще-то все еще здесь!"
     menu:
@@ -145,24 +147,24 @@ label Odin:
     return
 
 label Zassal:
-    hide ulearnich
-    show alex reverse:
+    hide ulearnich happy
+    show alex happy reverse:
         xalign -0.1 yalign 1.3
 
     a "Блин, как-то стремно... Наверное, все же откажусь.."
 
-    hide alex reverse
-    show alex:
+    hide alex happy reverse
+    show alex happy:
         xalign -0.1 yalign 1.3
-    show ulearnich:
-        xalign 1.1
+    show ulearnich happy:
+        xalign 1.1 yalign 1.3
 
     u "Вот ты душнила! Давай, вошли и вышли! Приключение на 20 минут!"
 
 label NeZassal:
-    hide ulearnich
-    hide alex
-    show alex
+    hide ulearnich happy
+    hide alex happy
+    show alex happy
 
     a "Ну и ладно, терять мне уже нечего, выберу синюю"
     return
