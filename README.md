@@ -8,7 +8,8 @@ _____
 
 ____
 
-# [Скачать архив с игрой](https://github.com/tiioll/OPD/raw/main/OPD_game-1.0-dists/OPD_game-1.0-pc.zip)
+# [Скачать архив с игрой](https://github.com/tiioll/OPD/raw/main/develop/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%201.zip)
+
 ____
 
 ### Полезные ссылки:
