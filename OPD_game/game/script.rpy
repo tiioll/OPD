@@ -1,6 +1,6 @@
 ﻿# Определение персонажей игры.
 define a = Character('Алекс', color = "#F5953D")
-define n = Character('Неизвестный из монитора', color = "#808080")
+define n = Character('Неизвестный из монитора', color = "#BBBBBB")
 define u = Character('Юрий Юлёрнович', color = "#366AF3")
 
 # Игра начинается здесь:
@@ -33,9 +33,9 @@ label start:
     show alex happy
 
     menu:
-        "Так, все, пора завязывать с энергетиками, уже и голоса мерещатся":
+        " - Так, все, пора завязывать с энергетиками, уже и голоса мерещатся":
             call Energos from _call_Energos
-        "Похоже из-за того, что я не спал последние две ночи, пока бился над практическим заданием, у меня появились галлюцинации":
+        " - Похоже из-за того, что я не спал последние две ночи, пока бился над практическим заданием, у меня появились галлюцинации":
             call NeSpal from _call_NeSpal
 
     hide alex happy
@@ -77,10 +77,14 @@ label start:
 
     u " - Выбор за тобой!"
 
+    hide ulearnich happy
+    hide alex happy reverse
+    show alex happy
+
     menu:
-        "Блин, как-то стремно... Наверное, все же откажусь..":
+        "Отказаться":
             call Zassal from _call_Zassal
-        "Ну и ладно, терять мне уже нечего, выберу синюю":
+        "Согласиться":
             call NeZassal from _call_NeZassal
 
     hide alex happy
@@ -93,7 +97,7 @@ label start:
 
     hide alex happy
 
-    "Алекс дефрагментируется и залетает в монитор. Туда, откуда прибыл Юрий Юлёрнович"
+    "Алекс дефрагментируется и залетает в монитор. Туда, откуда прибыл Юрий Юлёрнович."
 
     return
 # Заканчивается тут.
@@ -107,10 +111,10 @@ label Energos:
 
     n " - Ну допустим, не мерещится, а вот с энергетиками действительно заканчивай, вон глаза какие красные"
     menu:
-        "Мне все это просто снится... просто снится..":
+        " - Мне все это просто снится... просто снится..":
             call Snitsa from _call_Snitsa
             return
-        "Что за??! Что происходит?":
+        " - Что за??! Что происходит?":
             call ShoZa from _call_ShoZa
             return
 
@@ -123,10 +127,10 @@ label NeSpal:
 
     n " - Эй, Алекс, Я вообще-то все еще здесь!"
     menu:
-        "Что за??! Что происходит?":
+        " - Что за??! Что происходит?":
             call ShoZa from _call_ShoZa_1
             return
-        "Я же должен был остаться в офисе один...":
+        " - Я же должен был остаться в офисе один...":
             call Odin from _call_Odin
             return 
 
@@ -147,6 +151,7 @@ label Odin:
     return
 
 label Zassal:
+    hide alex happy
     hide ulearnich happy
     show alex happy reverse:
         xalign -0.1 yalign 1.3
