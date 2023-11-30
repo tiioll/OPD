@@ -25,7 +25,7 @@ label start:
     show alex:
         xalign -0.1
     show ulearnich:
-        xalign 1.1
+        xalign 1.1 yalign 1.9
 
     n " - Хмм, могу устроить"
 
