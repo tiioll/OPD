@@ -3,6 +3,12 @@ define a = Character('Алекс', color = "#F5953D")
 define n = Character('Неизвестный из монитора', color = "#BBBBBB")
 define u = Character('Юрий Юлёрнович', color = "#366AF3")
 
+init:
+    $ DedRight = Position(xalign = 1.1, yalign = -1.5)
+
+    $ AlexLeft = Position(xalign = 0.0, yalign = 0.8)
+    $ AlexCenter = Position(xalign = 0.3, yalign = 0.8)
+
 # Игра начинается здесь:
 label start:
 
@@ -15,23 +21,20 @@ label start:
     a " - Я ввел всего лишь террабайт информации, а ты, старая железка, не можешь ее обработать хотя бы в течение моей оставшейся жизни!!!"
 
     hide alex
-    show alex:
-        xalign -0.1
+    show alex at AlexLeft
 
     a " - Будь проклят тот день, когда я согласился работать в говнопрограмме с говнокодом."  
     a " - Если бы где-нибудь раздавали суперспособности, я бы выбрал способность понимать мышление компа, умение программировать и вообще бы стал крутым прогером!"
 
     hide alex
-    show alex:
-        xalign -0.1
-    show ulearnich:
-        xalign 1.1 yalign 1.9
+    show alex at AlexLeft
+    show ulearnich at DedRight
 
     n " - Хмм, могу устроить"
 
     hide ulearnich
     hide alex
-    show alex
+    show alex at AlexCenter
 
     menu:
         " - Так, все, пора завязывать с энергетиками, уже и голоса мерещатся":
@@ -41,18 +44,15 @@ label start:
 
     hide alex
     hide ulearnich
-    show ulearnich:
-        xalign 0.45
+    show ulearnich
 
     u " - Я ТВОЙ ПОВЕЛИТЕЛЬ!!!"
 
     hide ulearnich
     hide alex
 
-    show ulearnich:
-        xalign 1.1
-    show alex:
-        xalign -0.1 
+    show ulearnich at DedRight
+    show alex at AlexLeft
 
     u " - Ладно, шутка! Не парься так, я на самом деле добрый бог программирования."
 
@@ -73,14 +73,13 @@ label start:
 
     hide ulearnich
     hide alex
-    show ulearnich:
-        xalign 0.45
+    show ulearnich
 
     u " - Выбор за тобой!"
 
     hide ulearnich
     hide alex
-    show alex
+    show alex at AlexCenter
 
     menu:
         "Отказаться":
@@ -89,10 +88,8 @@ label start:
             call NeZassal from _call_NeZassal
 
     hide alex
-    show alex:
-        xalign 1.3 
-    show ulearnich:
-        xalign -0.1
+    show alex at AlexLeft
+    show ulearnich at DedRight
 
     u " - ХАХАХА! Еще ни один не спросил, как вернуться обратно! Ну что ж, пока не поймет и не научится всему, так и будет скитаться по оптоволокну!"
 
@@ -100,15 +97,35 @@ label start:
 
     "Алекс дефрагментируется и залетает в монитор. Туда, откуда прибыл Юрий Юлёрнович."
 
+    scene code
+
+    show alex at AlexCenter
+
+    a " - Я лечуууууу!?! Крутоооо! Как в детстве во сне))"
+
+    hide alex
+    show alex at AlexLeft
+    show ulearnich at DedRight
+
+    u " - Эй, эй! Аккуратней с воспоминаниями, смотри, чтоб как в детстве не оконфузился..."
+    a " - ха-ха, очень смешно"
+    a " - Да ну тебя! Где мы? Что со мной?"
+    u " - Сейчас мы с тобой пучки электронов, летим по оптоволокну, где то  посреди компьютера. Ну так что?! Не забыл для чего мы здесь?"
+    u " - Чему хочешь для начала научиться? Блокчейн? Настройка мозговых имплантов? Сенсорика? Дополненная реальность?"
+
+    menu:
+        " - Даже не знаю, мне надо подумать":
+            call Podumat
+        " - Хмм, половину слов не понял, А есть что- нибудь для начала совсем уж простое?":
+            call Zatichka
+
     return
 # Заканчивается тут.
 
 label Energos:
 
-    show alex:
-        xalign -0.1 
-    show ulearnich:
-        xalign 1.1
+    show alex at AlexLeft
+    show ulearnich at DedRight
 
     n " - Ну допустим, не мерещится, а вот с энергетиками действительно заканчивай, вон глаза какие красные"
     menu:
@@ -121,10 +138,8 @@ label Energos:
 
 label NeSpal:
 
-    show alex:
-        xalign -0.1 
-    show ulearnich:
-        xalign 1.1
+    show alex at AlexLeft
+    show ulearnich at DedRight
 
     n " - Эй, Алекс, Я вообще-то все еще здесь!"
     menu:
@@ -154,23 +169,23 @@ label Odin:
 label Zassal:
     hide alex
     hide ulearnich
-    show alex:
-        xalign -0.1
+    show alex at AlexLeft
+    show ulearnich at DedRight
 
     a " - Блин, как-то стремно... Наверное, все же откажусь.."
-
-    hide alex
-    show alex:
-        xalign -0.1 
-    show ulearnich:
-        xalign 1.1
 
     u " - Вот ты душнила! Давай, вошли и вышли! Приключение на 20 минут!"
 
 label NeZassal:
     hide ulearnich
     hide alex
-    show alex
+    show alex at AlexLeft
+    show ulearnich at DedRight
 
     a " - Ну и ладно, терять мне уже нечего, выберу синюю"
     return
+
+label Podumat:
+
+
+label Zatichka:
