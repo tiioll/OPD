@@ -7,7 +7,7 @@ init:
     $ DedRight = Position(xalign = 1.1, yalign = -1.5)
 
     $ AlexLeft = Position(xalign = 0.0, yalign = 0.8)
-    $ AlexCenter = Position(xalign = 0.3, yalign = 0.8)
+    $ center = Position(xalign = 0.3, yalign = 0.8)
 
 # Игра начинается здесь:
 label start:
@@ -34,7 +34,7 @@ label start:
 
     hide ulearnich
     hide alex
-    show alex at AlexCenter
+    show alex at center
 
     menu:
         " - Так, все, пора завязывать с энергетиками, уже и голоса мерещатся":
@@ -79,7 +79,7 @@ label start:
 
     hide ulearnich
     hide alex
-    show alex at AlexCenter
+    show alex at center
 
     menu:
         "Отказаться":
@@ -97,9 +97,11 @@ label start:
 
     "Алекс дефрагментируется и залетает в монитор. Туда, откуда прибыл Юрий Юлёрнович."
 
-    scene code
+    #SCENA 2
 
-    show alex at AlexCenter
+    scene intopc
+
+    show alex at center
 
     a " - Я лечуууууу!?! Крутоооо! Как в детстве во сне))"
 
@@ -108,16 +110,83 @@ label start:
     show ulearnich at DedRight
 
     u " - Эй, эй! Аккуратней с воспоминаниями, смотри, чтоб как в детстве не оконфузился..."
-    a " - ха-ха, очень смешно"
+    a " - Ха-ха, очень смешно"
     a " - Да ну тебя! Где мы? Что со мной?"
     u " - Сейчас мы с тобой пучки электронов, летим по оптоволокну, где то  посреди компьютера. Ну так что?! Не забыл для чего мы здесь?"
-    u " - Чему хочешь для начала научиться? Блокчейн? Настройка мозговых имплантов? Сенсорика? Дополненная реальность?"
 
+    hide alex
+    hide ulearnich
+    show ulearnich
+
+    u " - Чему хочешь для начала научиться? Блокчейн? Настройка мозговых имплантов? Сенсорика? Дополненная реальность?"
+    
+    hide ulearnich
+    show alex at center
     menu:
         " - Даже не знаю, мне надо подумать":
-            call Podumat
+            call Podumat from _call_Podumat
         " - Хмм, половину слов не понял, А есть что- нибудь для начала совсем уж простое?":
-            call Zatichka
+            call Zatichka from _call_Zatichka
+    
+    hide alex
+    hide ulearnich
+    show alex at AlexLeft
+    show ulearnich at DedRight
+
+    u " - Дай ка подумать... вот, вспомнил! видел я тут по пути один сайт"
+    u " - Автор его заслуженный оператор ЭВМ, с госнаградой СССР «Золотая перфокарта» - Зинаида Петровна Лавлейс, дальний родственник легендарной Ады Лавлейс"
+    
+    hide alex
+    hide ulearnich
+    show alex at center
+
+    menu:
+        " - Ктоо? впервые слышу про них.":
+            call Lekciya from _call_Lekciya
+        " - Звучит круто! А что с сайтом не так?":
+            call Zatichka from _call_Zatichka_1
+
+    hide alex
+    hide ulearnich
+    show alex at AlexLeft
+    show ulearnich at DedRight
+
+    u ' - Да понимаешь, Зинаида Петровна долгое время проработала в закрытом НИИ, сайт делала уже будучи на пенсии в 90х годах и возможно по старой привычке создала больше оружие массового психоза, чем сайт.'
+    u ' - Неокрепшим современным умам на такое смотреть не рекомендуется. В интернете и так полно сумасшедших, зачем их плодить еще больше.'
+    u ' - Короче, вот тебе сайт. Тебе нужно обезвредить его путем ликвидации кривой графики'
+    a ' - Звучит круто, я готов сэнсэй!'
+    u ' - Хаха, а ты мне уже начинаешь нравиться. Вперед! Рассудок не потеряешь, перейдем к чему нибудь посложнее.'
+
+    #Zdes minigame
+
+    #SCENA 3
+
+    scene intopc
+
+    show alex at AlexLeft
+    show ulearnich at DedRight
+
+    u ' - Иииииии ПОЗДРАВЛЯЮ! Первое задание выполнено!'
+    u ' - Я бы конечно справился чуть быстрее, скажем раз в сто быстрее, но для кожаного мешка вполне себе не плохо! Как себя чувствуешь? Помнишь еще кто ты, и зачем ты здесь?'
+
+    hide alex
+    hide ulearnich
+    show alex at center
+
+    menu:
+        " - оо да, теперь я готов к чему угодно":
+            call Zatichka from _call_Zatichka_2
+        " - Фууууф, помню конечно, было тяжело, но очень интересно. Чувствую себя прям рыцарем свежего, убрал весь мусор с сайта.":
+            call Zatichka from _call_Zatichka_3
+
+    hide alex
+    hide ulearnich
+    show alex at AlexLeft
+    show ulearnich at DedRight
+
+    u ' - Хе хе, очистил один давно забытый сайт и чувствуешь себя героем?! А как же остальные 90\% сайтов мира?!'
+    u ' - Ну ладно, это уж потом как нибудь сам, если захочешь. Работаем дальше?'
+
 
     return
 # Заканчивается тут.
@@ -167,7 +236,6 @@ label Odin:
     return
 
 label Zassal:
-    hide alex
     hide ulearnich
     show alex at AlexLeft
     show ulearnich at DedRight
@@ -186,6 +254,29 @@ label NeZassal:
     return
 
 label Podumat:
-
+    hide alex
+    hide ulearnich
+    show alex at AlexLeft
+    show ulearnich at DedRight
+    u " - Давай не тормози, иначе надоест мне с тобой возиться. оставлю тебя здесь одного"
+    a " - Переубедил пожалуй"
 
 label Zatichka:
+    return
+
+label Lekciya:
+    hide alex
+    hide ulearnich
+    show alex at AlexLeft
+    show ulearnich at DedRight
+
+    u " - Ах да. Я же забыл что вас учат только как писать кривой код"
+    u " - Короче, щегол, краткий Ликбез, Ада Лавлейс - первый в истории программист. она написала свой алгоритм еще в 1843 году"
+    a " - хаха, ну-ну, что то ты мне впариваешь какую-то дичь, Компы то только в 20 веке изобрели"
+    u " (вздох)"
+    u " - на самом деле нет. тогда уже был такой умный чел, звали его Бэббидж, который изобрел первый компьютер аж в 1822 году."
+    u " - Конечно компом назвать сейчас рука не поднимется, но тогда Ада написала для ЭТОГО компьютера свои программу."
+    u " - А ты и на своем мощном ноуте ничего сделать не можешь хаха"
+    a " - эй, обидно вообще то. Я много могу, но доказать мне пока еще не дали(("
+    a ' - ну ладно, заинтересовал, так чего там с сайтом?'
+    return

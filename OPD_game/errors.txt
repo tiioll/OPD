@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 112: Menu does not contain any choices.
-    menu:
-         ^
+File "game/script.rpy", line 192: expected statement.
+    a = " - переубедил пожалуй"
+      ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Sun Dec  3 17:48:10 2023
+Mon Dec  4 17:28:44 2023
