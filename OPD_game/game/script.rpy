@@ -4,18 +4,17 @@ define n = Character('Неизвестный из монитора', color = "#B
 define u = Character('Юрий Юлёрнович', color = "#366AF3")
 
 init:
-    $ DedRight = Position(xalign = 1.1, yalign = -1.5)
+    $ DedRight = Position(xalign = 1.0, yalign = -1.5)
 
-    $ AlexLeft = Position(xalign = 0.0, yalign = 0.8)
-    $ center = Position(xalign = 0.3, yalign = 0.8)
+    $ AlexLeft = Position(xalign = 0.0, yalign = -0.5)
+    $ center = Position(xalign = 0.5, yalign = -0.5)
 
 # Игра начинается здесь:
 label start:
 
     scene office
 
-    show alex:
-        xalign 0.3 yalign 0.8
+    show alex at center
 
     a " - Вот черт, опять программа зависла, 3 раз подряд, еще и кнопку отправки невозможно найти! Так работать невозможно."
     a " - Я ввел всего лишь террабайт информации, а ты, старая железка, не можешь ее обработать хотя бы в течение моей оставшейся жизни!!!"
@@ -236,6 +235,8 @@ label start:
     u " - Потом поймешь, неуч"
 
     #Konec 3 glavi
+
+    scene intopc
 
     hide alex
     hide ulearnich
