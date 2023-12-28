@@ -2,6 +2,12 @@
 define a = Character('[Alex]', color = "#F5953D")
 define n = Character('Неизвестный из монитора', color = "#BBBBBB")
 define u = Character('Юрий Юлёрнович', color = "#366AF3")
+define autor = Character("Голос в голове", color = "#BBBBBB")
+
+define audio.ded_spawn = "audio/spawn_ded.mp3"
+define audio.into_pc = "audio/into_pc.mp3"
+define audio.minigame_music = "audio/minigame_music.mp3"
+define audio.final = "audio/final.mp3"
 
 init:
     $ DedRight = Position(xalign = 1.0, yalign = -1.5)
@@ -18,6 +24,9 @@ label start:
 
     $ Alex = renpy.input("Введите имя персонажа", length=14)
 
+    hide alex
+    show alex a at center
+
     a " - Вот черт, опять программа зависла!"
     a " - Это уже 3 раз подряд!"
     a " - Еще и кнопку отправки невозможно найти!"
@@ -28,7 +37,9 @@ label start:
 
     hide alex
     show alex at AlexLeft
-    show ulearnich at DedRight
+    show ulearnich h at DedRight
+
+    play sound ded_spawn
 
     n " - Хмм, могу устроить"
 
@@ -95,13 +106,15 @@ label start:
 
     hide alex
 
-    "[Alex] дефрагментируется и залетает в монитор. Туда, откуда прибыл Юрий Юлёрнович."
+    autor "[Alex] дефрагментируется и залетает в монитор. Туда, откуда прибыл Юрий Юлёрнович."
 
     #SCENA 2
 
     scene intopc
 
     show alex at center
+
+    play sound into_pc
 
     a " - Я лечу-у-у-у?! Круто-о-о-о! Как в детстве во сне-е-е-е))"
 
@@ -140,7 +153,7 @@ label start:
     menu:
         " - Кто? впервые слышу про них.":
             call Lekciya from _call_Lekciya
-        " - Звучит круто, но я про них читал. А что с сайтом не так?":
+        " - Звучит круто, но я слышал про это. А что с сайтом не так?":
             call Zatichka from _call_Zatichka_1
 
     hide alex
@@ -154,8 +167,11 @@ label start:
     u ' - Короче, вот тебе сайт. Тебе нужно обезвредить его путем ликвидации кривой графики'
     a ' - Звучит круто, я готов, сэнсэй!'
     u ' - Хаха, а ты мне уже начинаешь нравиться. Вперед! Рассудок не потеряешь, перейдем к чему нибудь посложнее.'
+    
+    hide alex
+    hide ulearnich
 
-    #Zdes minigame
+    call MiniGame1 from _call_MiniGame1
 
     #SCENA 3
 
@@ -163,6 +179,8 @@ label start:
 
     show alex at AlexLeft
     show ulearnich at DedRight
+
+    play sound into_pc
 
     u ' - Иииииии ПОЗДРАВЛЯЮ! Первое задание выполнено!'
     u ' - Я бы конечно справился чуть быстрее, скажем раз в сто, но для кожаного мешка вполне себе не плохо! Как себя чувствуешь? Помнишь еще кто ты, и зачем ты здесь?'
@@ -182,7 +200,7 @@ label start:
     show alex at AlexLeft
     show ulearnich at DedRight
 
-    u ' - Хе хе, очистил один давно забытый сайт и чувствуешь себя героем?! А как же остальные 90\% сайтов мира?!'
+    u ' - Хе хе, очистил один давно забытый сайт и чувствуешь себя героем?! А как же остальные примерно 100\% сайтов мира?!'
     u ' - Ну ладно, это уж потом как нибудь сам, если захочешь. Работаем дальше?'
     a ' - Да, конечно, я готов продолжать'
     u ' - Хех, согласился он, как-будто у него есть выбор...'
@@ -199,12 +217,14 @@ label start:
         " - Ухх, я заряжен, погнали!":
             call Zatichka from _call_Zatichka_4
 
-    #Zdes igra2 i smena lokacii
+    scene code
 
     hide alex
     hide ulearnich
     show alex at AlexLeft
     show ulearnich at DedRight
+
+    play sound into_pc
 
     a ' - Ого! Прямо как в фильме, вокруг падающие знаки и элементы кода!'
     u ' - Ага! Я там, кстати, на заднем фоне снялся в эпизодической роли гениальной строчки кода. Но ее заметили только профи'
@@ -221,12 +241,16 @@ label start:
         " - Да вроде все норм, чет не вижу":
             call DaVrodeNorm from _call_DaVrodeNorm
 
-    #Zdes opyat igra 2
+    call MiniGame2 from _call_MiniGame2
+
+    scene code4
 
     hide alex
     hide ulearnich
     show alex at AlexLeft
     show ulearnich at DedRight
+
+    play sound into_pc
 
     u " - Хм, а ты не такой уж и бездарь, каким казался вначале. Надо же, справился и с этой задачей."
     u " - Как сказал один боксер: «А сегодня в оптимизацию не все могут. Вернее могут не только лишь все, мало кто может это!»"
@@ -244,7 +268,7 @@ label start:
     show alex at AlexLeft
     show ulearnich at DedRight
 
-    u " - Ну что мой юнный подаван! Ты готов к финальному испытание?"
+    u " - Ну что мой юнный подаван, ты готов к финальному испытанию?"
     a " - Конечно, после предыдущих испытаний мне ничего не страшно, я готов на все!"
     u " - Правда?) займи тогда пару лямов на стартап"
     a " - Очень смешно. Не на столько на всё! Давай свое испытание"
@@ -256,7 +280,9 @@ label start:
     a " - Согласен! Никогда не ковырялся в железе, но готов попробовать"
     u " - Так вперед, пофиксь все ошибки!"
 
-    #zdes igra
+    call MiniGame3 from _call_MiniGame3
+
+    scene intopc
 
     hide alex
     hide ulearnich
@@ -268,9 +294,10 @@ label start:
     a " - Спасибо тебе! Я запомню все, что со мной тут было на всю жизнь!"
     u " - Ладно, ладно, вали уже к себе в реальный мир!"
     
-    #tut cheto proishodit
+    play sound final
 
-    u " - ХАХАХАХАХА, игра началась, [Alex], ты же не думаешь что все закончилось?)"
+    u " - ХАХАХАХАХА, [Alex], ты же не думаешь что все закончилось?)"
+    u " - Игра только началась!"
 
     return
 # Заканчивается тут.
@@ -388,4 +415,196 @@ label DaVrodeNorm:
     u " - Аа о чем это я, короче голыми руками давай исправляй, чтобы всё действительно норм работало"
     u " - Вот тут тебе в помощь оптимизированные куски кода, найди, куда их вставить и будет тебе счастье!"
     u " - Но помни: «Улучшение хорошо работающего продукта приводит к его ухудшению», так что не перестарайся"
+    return
+
+
+
+label MiniGame1:
+    scene sitex
+
+    play music minigame_music
+
+
+
+    show alex at AlexLeft
+
+    a "Это вообще реально починить?"
+
+    show ulearnich at DedRight
+
+    u "Хочешь попробовать создать проект сайта снуля? Вот это настрой! Я тебя понял, удаляю текущий"
+
+    scene white
+    show alex at AlexLeft
+
+    a "Я имел ввиду на первый раз найти не такой безнадёжный проект..."
+
+    show ulearnich at DedRight
+
+    u "Что-то я поторопился. И вообще, кто минуту назад твердил, что готов?"
+    u "Так что давай, не ной и почини это"
+
+    call Cvet from _call_Cvet
+
+    stop music fadeout 1.0
+
+    return
+
+label Cvet:
+    scene white
+    u "Для начала выбери подходящую палитру цветов цвет из предложенных"
+
+    menu:
+        "{image=Fones/Cvet/X.png}":
+            call CvetR from _call_CvetR
+        "{image=Fones/Cvet/N.png}":
+            scene sitef
+            u "У тебя хороший вкус!"
+            call Shrift from _call_Shrift
+        "{image=Fones/Cvet/Y.png}":
+            call CvetR from _call_CvetR_1
+        "{image=Fones/Cvet/I.png}":
+            call CvetR from _call_CvetR_2
+
+    return
+
+label CvetR:
+    u "Подумай ещё!"
+    call Cvet from _call_Cvet_1
+    return
+
+label Shrift:
+    u "Теперь тебе предстоит выбрать шрифт. Помни, что пользователь не должен всматриваться в текст"
+
+    menu:
+        "{image=Fones/Serif/N.png}":
+            scene sites
+            u "Да, этот подходит"
+            u "Ну и куда же сайт без логотипа"
+            call Logo from _call_Logo
+        "{image=Fones/Serif/X.png}":
+            call ShriftR from _call_ShriftR
+        "{image=Fones/Serif/Y.png}":
+            call ShriftR from _call_ShriftR_1
+        "{image=Fones/Serif/I.png}":
+            call ShriftR from _call_ShriftR_2
+
+    return
+
+label ShriftR:
+    u "Увы, но ты ошибся"
+    call Shrift from _call_Shrift_1
+    return
+
+label Logo:
+    u "Помни, лого должно не только быть красивым и в хорошем качестве, но и подходить по стилю и цветам"
+
+    menu:
+        "{image=Fones/Logo/X.png}":
+            call LogoR from _call_LogoR
+        "{image=Fones/Logo/N.png}":
+            scene sitel
+            u "Действительно!"
+            call FinishGame from _call_FinishGame
+        "{image=Fones/Logo/Y.png}":
+            call LogoR from _call_LogoR_1
+        "{image=Fones/Logo/I.png}":
+            call LogoR from _call_LogoR_2
+
+    return
+
+label LogoR:
+    u "Ты уверен? Может ещё разок попробуешь?"
+    call Logo from _call_Logo_1
+    return
+
+
+label MiniGame2:
+    scene code
+
+    play music minigame_music
+
+    u "Думаю, ты уже догадался, что с кодом что-то не так"
+    u "Тебе предстоить определить что именно"
+    u "Специально для тебя я выделю проблемный участок, а ты выберешь верный из предложенных вариантов"
+    u "Начнём!"
+
+    call NameParams from _call_NameParams
+
+    stop music fadeout 1.0
+
+    return
+
+label NameParams:
+    scene code1
+    u "Что не так в этом месте?"
+
+    menu:
+        " - Любой файл ОБЯЗАТЕЛЬНО нужно открывать так: \"with open(...) as ... \"":
+            call NameParamsR from _call_NameParamsR
+        " - Нужно использовать только двойные кавычки":
+            call NameParamsR from _call_NameParamsR_1
+        " - Нужно использовать только одинарные кавычки":
+            call NameParamsR from _call_NameParamsR_2
+        " - Непонятные названия вводимых переменных":
+            u "Так и есть!"
+            scene code2
+            u "Идём дальше"
+            call Cycle from _call_Cycle
+    return
+
+label NameParamsR:
+    u "Не думаю, что проблема в этом"
+    call NameParams from _call_NameParams_1
+    return
+
+label Cycle:
+    menu:
+        " - Лишний код. Нужно использовать цикл с заданным количеством повторов":
+            scene code3
+            u "Теперь взгляни на весь код целиком и выбери, чего же ещё такого важного мы не сделали"
+            call CloseFile from _call_CloseFile
+        " - Может быть здесь дело в кавычках?":
+            call CycleR from _call_CycleR
+        " - Вдруг одно условие сработает 2 раза? Никогда нельзя использовать \"elif\"":
+            call CycleR from _call_CycleR_1
+        " - Стоит делать отступы в одну строку после каждого условия":
+            call CycleR from _call_CycleR_2
+    return 
+
+label CycleR:
+    u "Я бы на твоём месте ещё раз подумал"
+    u "Как-никак, за упавший вертолёт ответственность будет на тебе!"
+    call Cycle from _call_Cycle_1
+    return
+
+label CloseFile:
+    u "Смотри очень внимательно"
+    menu:
+        " - Не вижу никаких проблем":
+            call CloseFileR from _call_CloseFileR
+        " - Любой открытый файл должен закрываться":
+            scene code4
+            u "Действительно, тут даже я недоглядел"
+            call FinishGame from _call_FinishGame_1
+        " - В \"range\" цикла обязательно должен быть указан шаг цикла":
+            call CloseFileR from _call_CloseFileR_1
+        " - Последний \"else\" не нужен":
+            call CloseFileR from _call_CloseFileR_2
+    return
+
+label CloseFileR:
+    u "Хоть немного головой подумай, прежде чем тыкать"
+    call CloseFile from _call_CloseFile_1
+    return
+
+
+
+label MiniGame3:
+    return
+
+
+
+
+label FinishGame:
     return

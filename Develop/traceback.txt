@@ -1,28 +1,31 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('gui/textbox.png') at 0x000000000542bbb0>:
-  File "game/script.rpy", line 114, in script
-    a " - Да ну тебя! Где мы? Что со мной?"
-  File "game/script.rpy", line 114, in script
-    a " - Да ну тебя! Где мы? Что со мной?"
-OSError: Couldn't find file 'gui/textbox.png'.
+While loading <renpy.display.im.Image object ('images/Fones/Site/sites.png') at 0x0000000004c5fe20>:
+  File "game/script.rpy", line 174, in script call
+    call MiniGame1
+  File "game/script.rpy", line 447, in script call
+    call Cvet
+  File "game/script.rpy", line 461, in script call
+    call Shrift
+  File "game/script.rpy", line 481, in script call
+    call Logo
+  File "game/script.rpy", line 498, in script
+    u "Да, этот подходит"
+OSError: Couldn't find file 'images/Fones/Site/sites.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\bootstrap.py", line 275, in bootstrap
-    renpy.main.main()
-  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\main.py", line 670, in main
-    run(restart)
-  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\main.py", line 144, in run
-    renpy.execution.run_context(True)
-  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\execution.py", line 955, in run_context
-    context.run()
-  File "game/script.rpy", line 114, in script
-    a " - Да ну тебя! Где мы? Что со мной?"
-  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
-  File "game/script.rpy", line 114, in script
-    a " - Да ну тебя! Где мы? Что со мной?"
+  File "game/script.rpy", line 174, in script call
+    call MiniGame1
+  File "game/script.rpy", line 447, in script call
+    call Cvet
+  File "game/script.rpy", line 461, in script call
+    call Shrift
+  File "game/script.rpy", line 481, in script call
+    call Logo
+  File "game/script.rpy", line 498, in script
+    u "Да, этот подходит"
   File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\ast.py", line 930, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\exports.py", line 1474, in say
@@ -55,16 +58,15 @@ Full traceback:
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
-  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\display\screen.py", line 731, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
+  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\display\transform.py", line 909, in render
+    return RenderTransform(self).render(width, height, st, at)
+  File "accelerator.pyx", line 979, in renpy.display.accelerator.RenderTransform.render
+  File "accelerator.pyx", line 404, in renpy.display.accelerator.RenderTransform.render_child
   File "render.pyx", line 266, in renpy.display.render.render
-  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\display\layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\display\layout.py", line 1373, in render
-    back = render(style.background, bw, bh, st, at)
+  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\display\image.py", line 513, in render
+    return wrap_render(self.target, width, height, st, at)
+  File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\display\image.py", line 316, in wrap_render
+    rend = render(child, w, h, st, at)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
   File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\display\im.py", line 676, in render
@@ -77,9 +79,9 @@ Full traceback:
     filelike = renpy.loader.load(self.filename, directory="images")
   File "D:\Program Files\Я не гей (renpy)\renpy-8.1.3-sdk\renpy\loader.py", line 833, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'gui/textbox.png'.
+OSError: Couldn't find file 'images/Fones/Site/sites.png'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
 OPD_game 1.0
-Mon Dec 11 02:04:34 2023
+Fri Dec 29 03:36:40 2023
