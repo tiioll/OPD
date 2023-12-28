@@ -8,7 +8,7 @@ _____
 
 ____
 
-# [Скачать архив с игрой](https://github.com/tiioll/OPD/raw/main/Relese/%D0%94%D0%B5%D0%BC%D0%BA%D0%B0%201.1.zip)
+# [Скачать архив с игрой](https://github.com/tiioll/OPD/raw/main/Relese/%D0%94%D0%B5%D0%BC%D0%BA%D0%B0%201.2.zip)
 
 ____
 
