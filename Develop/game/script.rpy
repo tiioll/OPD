@@ -1,5 +1,5 @@
 ﻿# Определение персонажей игры.
-define a = Character('[Alex]', color = "#F5953D")
+define a = Character('[Alex]', color = "#25dbef")
 define n = Character('Неизвестный из монитора', color = "#BBBBBB")
 define u = Character('Юрий Юлёрнович', color = "#366AF3")
 define autor = Character("Голос в голове", color = "#BBBBBB")
@@ -62,21 +62,37 @@ label start:
     hide ulearnich
     hide alex
 
-    show ulearnich at DedRight
+    show ulearnich h at DedRight
     show alex at AlexLeft
 
     u " - Ладно, шутка! Не парься так, я на самом деле добрый бог программирования."
 
+    hide ulearnich
+    show ulearnich at DedRight
+
     a " - Но,но... как ты здесь очутился?"
 
+    hide ulearnich
+    show ulearnich h at DedRight
+
     u " - По сети BLUETOOTH прилетел АХАХАХА!"
+
+    hide ulearnich
+    show ulearnich at DedRight
+
     u " - Ладно, как я сказал ранее, я - божество, олицетворяющее идеального программиста. Я могу переместиться в любую точку земного шара по щелчку пальца!"
     u " - Вот недавно, например, Маска навещал. Помогал ему запуски ракет рассчитывать. Но потом мне все это надоело, и вот, теперь я здесь"
     u " - Что-то заболтался я..."
     u " - Ну так что? Помочь тебе разобраться в этом бездонном мире нулей и единиц? Хочешь научиться кодить?  Оптимизировать программы?  Зарабатывать кучу денег и жить на Майами?"
     
+    hide alex
+    show alex h at AlexLeft
+
     a " - Конечно, хочу! Я бы многие программы и сайты оптимизировал, сил больше моих нет, тут сидеть и ждать, пока все заработает. Что нужно делать?"
     
+    hide alex
+    show alex at AlexLeft
+
     u " - Короче, все по классике, выбери синюю или красную!"
     u " - Я догадываюсь, что ты сейчас ощущаешь себя словно Алиса, падающая в кроличью нору"
     u " - Выберешь красную - так и останешься постепенно лысеющим сисадмином на скучной работе"
@@ -100,7 +116,7 @@ label start:
 
     hide alex
     show alex at AlexLeft
-    show ulearnich at DedRight
+    show ulearnich h at DedRight
 
     u " - ХАХАХА! Еще ни один не спросил, как вернуться обратно! Ну что ж, пока не поймет и не научится всему, так и будет скитаться по оптоволокну!"
 
@@ -112,7 +128,7 @@ label start:
 
     scene intopc
 
-    show alex at center
+    show alex h at center
 
     play sound into_pc
 
@@ -123,7 +139,15 @@ label start:
     show ulearnich at DedRight
 
     u " - Эй, эй! Аккуратней с воспоминаниями, смотри, чтоб как в детстве не оконфузился..."
+
+    hide alex
+    show alex a at AlexLeft
+
     a " - Ха-ха, очень смешно"
+
+    hide alex
+    show alex at AlexLeft
+
     a " - Да ну тебя! Где мы? Что со мной?"
     u " - Сейчас мы с тобой пучки электронов, летим по оптоволокну, где то посреди компьютера. Ну так что?! Не забыл для чего мы здесь?"
     u " - Чему хочешь для начала научиться? Блокчейн? Настройка мозговых имплантов? Сенсорика? Дополненная реальность?"
@@ -153,7 +177,7 @@ label start:
     menu:
         " - Кто? впервые слышу про них.":
             call Lekciya from _call_Lekciya
-        " - Звучит круто, но я слышал про это. А что с сайтом не так?":
+        " - Звучит круто, но я в теме. А что с сайтом не так?":
             call Zatichka from _call_Zatichka_1
 
     hide alex
@@ -161,11 +185,19 @@ label start:
     show alex at AlexLeft
     show ulearnich at DedRight
 
-    u ' - Да понимаешь, Зинаида Петровна долгое время проработала в закрытом НИИ.'
-    u ' - Сайт делала уже будучи на пенсии в 90х годах и возможно по старой привычке создала нечто, больше походящее на оружие массового психоза, чем на сайт.'
+    u ' - Да понимаешь, Зинаида Петровна долгое время проработала в закрытом НИИ'
+    u ' - Сайт делала уже будучи на пенсии в 90х годах и возможно по старой привычке создала нечто, больше походящее на оружие массового психоза, чем на сайт'
     u ' - Неокрепшим современным умам на такое смотреть не рекомендуется. В интернете и так полно сумасшедших, зачем их плодить еще больше.'
-    u ' - Короче, вот тебе сайт. Тебе нужно обезвредить его путем ликвидации кривой графики'
+    u ' - Короче, вот тебе сайт. Тебе нужно обезвредить его путем ликвидации кривой графики.'
+
+    hide alex
+    show alex h at AlexLeft
+
     a ' - Звучит круто, я готов, сэнсэй!'
+
+    hide ulearnich
+    show ulearnich h at DedRight
+
     u ' - Хаха, а ты мне уже начинаешь нравиться. Вперед! Рассудок не потеряешь, перейдем к чему нибудь посложнее.'
     
     hide alex
@@ -177,7 +209,7 @@ label start:
 
     scene intopc
 
-    show alex at AlexLeft
+    show alex h at AlexLeft
     show ulearnich at DedRight
 
     play sound into_pc
@@ -187,7 +219,7 @@ label start:
 
     hide alex
     hide ulearnich
-    show alex at center
+    show alex h at center
 
     menu:
         " - Оо да, теперь я готов к чему угодно":
@@ -197,10 +229,16 @@ label start:
 
     hide alex
     hide ulearnich
-    show alex at AlexLeft
-    show ulearnich at DedRight
+    show alex a at AlexLeft
+    show ulearnich h at DedRight
 
     u ' - Хе хе, очистил один давно забытый сайт и чувствуешь себя героем?! А как же остальные примерно 100\% сайтов мира?!'
+
+    hide ulearnich
+    show ulearnich at DedRight
+    hide alex
+    show alex at AlexLeft
+
     u ' - Ну ладно, это уж потом как нибудь сам, если захочешь. Работаем дальше?'
     a ' - Да, конечно, я готов продолжать'
     u ' - Хех, согласился он, как-будто у него есть выбор...'
@@ -219,15 +257,23 @@ label start:
 
     scene code
 
-    hide alex
-    hide ulearnich
-    show alex at AlexLeft
+    show alex h at AlexLeft
     show ulearnich at DedRight
 
     play sound into_pc
 
     a ' - Ого! Прямо как в фильме, вокруг падающие знаки и элементы кода!'
+
+    hide ulearnich
+    show ulearnich h at DedRight
+
     u ' - Ага! Я там, кстати, на заднем фоне снялся в эпизодической роли гениальной строчки кода. Но ее заметили только профи'
+
+    hide ulearnich
+    show ulearnich at DedRight
+    hide alex
+    show alex at AlexLeft
+
     u ' - Короче! Слушай мою команду! Мы внутри кода, код скажем так, слегка попахивает, да что там, от него разит! ничего не оптимизировано, все лагает, ссылки цикличны, множество повторов'
     u ' - В общем, ситуацию надо исправлять'
 
@@ -243,23 +289,40 @@ label start:
 
     call MiniGame2 from _call_MiniGame2
 
+
+    
+
     scene code4
+
+    hide alex
+    hide ulearnich
+    show alex a at AlexLeft
+    show ulearnich h at DedRight
+
+    play sound into_pc
+
+    u " - Хм, а ты не такой уж и бездарь, каким казался вначале. Надо же, справился с последней задачей."
 
     hide alex
     hide ulearnich
     show alex at AlexLeft
     show ulearnich at DedRight
 
-    play sound into_pc
-
-    u " - Хм, а ты не такой уж и бездарь, каким казался вначале. Надо же, справился и с этой задачей."
     u " - Как сказал один боксер: «А сегодня в оптимизацию не все могут. Вернее могут не только лишь все, мало кто может это!»"
     u " - Золотые слова!"
     u " - И запомни: «Тестировщик не выдаст, заказчик не съест!»"
     a " - Ничего не понял, но очень интересно"
+
+    hide ulearnich
+    show ulearnich h at DedRight
+    hide alex
+    show alex a at AlexLeft
+
     u " - Потом поймешь, неуч"
 
     #Konec 3 glavi
+
+    $'''
 
     scene intopc
 
@@ -269,9 +332,27 @@ label start:
     show ulearnich at DedRight
 
     u " - Ну что мой юнный подаван, ты готов к финальному испытанию?"
+
+    hide alex
+    show alex at AlexLeft
+
     a " - Конечно, после предыдущих испытаний мне ничего не страшно, я готов на все!"
+
+    hide ulearnich
+    show ulearnich h at DedRight
+
     u " - Правда?) займи тогда пару лямов на стартап"
+
+    hide alex
+    show alex a at AlexLeft
+
     a " - Очень смешно. Не на столько на всё! Давай свое испытание"
+
+    hide ulearnich
+    show ulearnich at DedRight
+    hide alex
+    show alex at AlexLeft
+
     u " - Ладно! Как говорили Стругацкие «Нет на свете ничего такого, чего нельзя было бы исправить»"
     u " - Перед нами железо, да не простое, компьютерное! С компонентами!"
     u " - Да только собрано оно руками что из заднего места растут, оборвать бы их кому-то"
@@ -282,6 +363,8 @@ label start:
 
     call MiniGame3 from _call_MiniGame3
 
+    $'''
+
     scene intopc
 
     hide alex
@@ -291,12 +374,24 @@ label start:
 
     u " - Что ж, могу тебя поздравить! Ты прошел все испытания! Надеюсь, теперь ты не будешь вымещать зло на компьютере или программном обеспечении!"
     u " - Все дело только в тебе! Учись, развивайся! Человек сам творец своего счастья!"
+    
+    hide alex
+    show alex h at AlexLeft
+
     a " - Спасибо тебе! Я запомню все, что со мной тут было на всю жизнь!"
-    u " - Ладно, ладно, вали уже к себе в реальный мир!"
+
+    hide ulearnich
+    show ulearnich h at DedRight
+
+    u " - Да ладно тебе, давай, вали уже в свой реальный мир"
     
     play sound final
 
-    u " - ХАХАХАХАХА, [Alex], ты же не думаешь что все закончилось?)"
+    hide alex
+    hide ulearnich
+    show ulearnich
+
+    u " - ХАХАХАХАХА, [Alex], ты же не думаешь, что на этом все закончилось?)"
     u " - Игра только началась!"
 
     return
@@ -305,7 +400,7 @@ label start:
 label Energos:
 
     show alex at AlexLeft
-    show ulearnich at DedRight
+    show ulearnich a at DedRight
 
     n " - Ну, допустим, не мерещится, а вот с энергетиками действительно заканчивай, вон глаза какие красные"
     menu:
@@ -319,7 +414,7 @@ label Energos:
 label NeSpal:
 
     show alex at AlexLeft
-    show ulearnich at DedRight
+    show ulearnich a at DedRight
 
     n " - Эй, [Alex], Я вообще-то все еще здесь!"
     menu:
@@ -337,8 +432,12 @@ label Snitsa:
     return
 
 label ShoZa:
+    hide alex
+    show alex a at AlexLeft
     a " - Наверное, просто глупый розыгрыш"
-    n " - Да кому ты нужен, разыгрывать тебя, ага, сидишь тут, штаны протираешь!"
+    n " - Да кому ты нужен, разыгрывать тебя ага, сидишь тут, штаны протираешь!"
+    hide alex
+    show alex at AlexLeft
     a " - Но... но... кто со мной общается сейчас? Кто ты... нет, что ты такое?!"
     return
 
@@ -348,12 +447,14 @@ label Odin:
 
 label Zassal:
     hide ulearnich
-    show alex at AlexLeft
-    show ulearnich at DedRight
+    show alex a at AlexLeft
+    show ulearnich a at DedRight
 
     a " - Блин, как-то стремно... Наверное, все же откажусь.."
 
     u " - Вот ты душнила! Давай, вошли и вышли! Приключение на 20 минут!"
+
+    call NeZassal from _call_NeZassal_1
     return
 
 label NeZassal:
@@ -369,9 +470,13 @@ label Podumat:
     hide alex
     hide ulearnich
     show alex at AlexLeft
-    show ulearnich at DedRight
+    show ulearnich a at DedRight
 
     u " - Давай не тормози, иначе надоест мне с тобой возиться и оставлю тебя здесь одного"
+
+    hide ulearnich
+    show ulearnich at DedRight
+
     a " - Переубедил, пожалуй"
     a " - Но есть для начала что-нибудь совсем простое?"
     return
@@ -383,16 +488,42 @@ label Lekciya:
     hide alex
     hide ulearnich
     show alex at AlexLeft
-    show ulearnich at DedRight
+    show ulearnich a at DedRight
 
     u " - Ах да. Я же забыл что вас учат только как писать кривой код"
+
+    hide ulearnich
+    show ulearnich at DedRight
+
     u " - Короче, щегол, краткий Ликбез. Ада Лавлейс - первый в истории программист. она написала свой алгоритм еще в 1843 году"
+
+    hide alex
+    show alex h at AlexLeft
+
     a " - Хаха, ну-ну, что-то ты мне впариваешь какую-то дичь, Компы то, только в 20 веке изобрели"
+
+    hide ulearnich
+    show ulearnich a at DedRight
+
     u " (вздох)"
+
+    hide ulearnich
+    show ulearnich at DedRight
+    hide alex
+    show alex at AlexLeft
+
     u " - на самом деле нет. Уже тогда был такой умный чел, звали его Бэббидж, который изобрел первый компьютер аж в 1822 году."
     u " - Конечно, компом назвать сейчас рука не поднимется, но тогда Ада написала для ЭТОГО компьютера свою программу."
     u " - А ты и на своем мощном ноуте ничего сделать не можешь ха-ха"
+
+    hide alex
+    show alex a at AlexLeft
+
     a " - Эй, обидно вообще то"
+
+    hide alex
+    show alex at AlexLeft
+
     a ' - Ну ладно, заинтересовал, так чего там с сайтом?'
     return
 
@@ -400,7 +531,7 @@ label Chistit:
     hide alex
     hide ulearnich
     show alex at AlexLeft
-    show ulearnich at DedRight
+    show ulearnich a at DedRight
 
     u " - А ну-ка, отставить такие мысли! Вперед и только вперед"
     return
@@ -409,9 +540,13 @@ label DaVrodeNorm:
     hide alex
     hide ulearnich
     show alex at AlexLeft
-    show ulearnich at DedRight
+    show ulearnich a at DedRight
 
     u " - Надо же, норм ему, а сам недавно на аналогичную прогу орал, весь монитор забрызгал. Давай не отмазывайся, надевай перчатки, бери лопату и... "
+    
+    hide ulearnich
+    show ulearnich at DedRight
+    
     u " - Аа о чем это я, короче голыми руками давай исправляй, чтобы всё действительно норм работало"
     u " - Вот тут тебе в помощь оптимизированные куски кода, найди, куда их вставить и будет тебе счастье!"
     u " - Но помни: «Улучшение хорошо работающего продукта приводит к его ухудшению», так что не перестарайся"
@@ -424,18 +559,16 @@ label MiniGame1:
 
     play music minigame_music
 
-
-
     show alex at AlexLeft
 
     a "Это вообще реально починить?"
 
-    show ulearnich at DedRight
+    show ulearnich h at DedRight
 
-    u "Хочешь попробовать создать проект сайта снуля? Вот это настрой! Я тебя понял, удаляю текущий"
+    u "Хочешь попробовать создать проект сайта снуля? Вот это настрой! Я тебя понял, РЕДАКТИРОВАНИЕ САЙТА!"
 
     scene white
-    show alex at AlexLeft
+    show alex a at AlexLeft
 
     a "Я имел ввиду на первый раз найти не такой безнадёжный проект..."
 
